@@ -16,9 +16,11 @@ echo ""
 
 cp /root/gma.lua $contentroot/gma.lua
 
-lua5.3 $contentroot/gma.lua $itemId.gma $contentroot/addon.json
+cd $contentroot
 
+lua5.3 gma.lua $itemId.gma addon.json
 
+cd ~
 
 echo ""
 echo "#################################"
