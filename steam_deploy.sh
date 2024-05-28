@@ -6,7 +6,7 @@ steamdir=${STEAM_HOME:-$HOME/.local/share/Steam}
 # this is relative to the action
 contentroot=$(pwd)/$rootPath
 
-manifest_path=$(pwd)/manifest.vdf
+manifest_path=$(pwd)/workshop.vdf
 
 echo ""
 echo "#################################"
@@ -14,7 +14,11 @@ echo "#    Generating GMA #"
 echo "#################################"
 echo ""
 
-lua5.3 gma.lua $itemId.gma 
+cp gma.lua $contentroot/gma.lua
+
+lua5.3 $contentroot/gma.lua $itemId.gma 
+
+
 
 echo ""
 echo "#################################"
@@ -22,17 +26,17 @@ echo "#    Generating Item Manifest   #"
 echo "#################################"
 echo ""
 
-cat << EOF > "manifest.vdf"
+cat << EOF > "workshop.vdf"
 "workshopitem"
 {
     "appid" "$appId"
     "publishedfileid" "$itemId"
-    "contentfolder" "$contentroot"
+    "contentfolder" "$contentroot/$itemId.gma"
     "changenote" "$changeNote"
 }
 EOF
 
-cat manifest.vdf
+cat workshop.vdf
 echo ""
 
 if [ ! -n "$configVdf" ]; then
