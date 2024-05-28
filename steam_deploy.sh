@@ -2,11 +2,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
+pwd = $(pwd)
+
 steamdir=${STEAM_HOME:-$HOME/.local/share/Steam}
 # this is relative to the action
-contentroot=$(pwd)/$rootPath
+contentroot=$pwd/$rootPath
 
-manifest_path=$(pwd)/workshop.vdf
+manifest_path=$pwd/workshop.vdf
 
 echo ""
 echo "#################################"
@@ -14,13 +16,14 @@ echo "#    Generating GMA #"
 echo "#################################"
 echo ""
 
+
 cp /root/gma.lua $contentroot/gma.lua
 
 cd $contentroot
 
 lua5.3 gma.lua $itemId.gma addon.json
 
-cd ~
+cd $pwd
 
 echo ""
 echo "#################################"
