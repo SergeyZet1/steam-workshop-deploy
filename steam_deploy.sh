@@ -10,6 +10,14 @@ manifest_path=$(pwd)/manifest.vdf
 
 echo ""
 echo "#################################"
+echo "#    Generating GMA #"
+echo "#################################"
+echo ""
+
+lua5.3 gma.lua $itemId.gma 
+
+echo ""
+echo "#################################"
 echo "#    Generating Item Manifest   #"
 echo "#################################"
 echo ""
