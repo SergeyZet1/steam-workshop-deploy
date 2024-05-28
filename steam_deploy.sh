@@ -2,13 +2,13 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-pwd = $(pwd)
+CURRENT_PWD = $(pwd)
 
 steamdir=${STEAM_HOME:-$HOME/.local/share/Steam}
 # this is relative to the action
-contentroot=$pwd/$rootPath
+contentroot=$CURRENT_PWD/$rootPath
 
-manifest_path=$pwd/workshop.vdf
+manifest_path=$CURRENT_PWD/workshop.vdf
 
 echo ""
 echo "#################################"
@@ -23,7 +23,7 @@ cd $contentroot
 
 lua5.3 gma.lua $itemId.gma addon.json
 
-cd $pwd
+cd $CURRENT_PWD
 
 echo ""
 echo "#################################"
