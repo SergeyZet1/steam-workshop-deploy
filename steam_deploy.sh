@@ -14,9 +14,9 @@ echo "#    Generating GMA #"
 echo "#################################"
 echo ""
 
-cp gma.lua $contentroot/gma.lua
+cp $(pwd)/gma.lua $contentroot/gma.lua
 
-lua5.3 $contentroot/gma.lua $itemId.gma 
+lua5.3 $contentroot/gma.lua $itemId.gma addon.json
 
 
 
