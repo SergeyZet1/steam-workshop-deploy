@@ -2,7 +2,7 @@
 set -euo pipefail
 IFS=$'\n\t'
 
-CURRENT_PWD = $(pwd)
+CURRENT_PWD=$(pwd)
 
 steamdir=${STEAM_HOME:-$HOME/.local/share/Steam}
 # this is relative to the action
