@@ -224,6 +224,8 @@ local whitelist = map({
 	"data_static/*.mp3",
 	"data_static/*.wav",
 	"data_static/*.ogg",
+  
+  "shaders/fxc/*.vcs"
 }, wildcard2pattern)
 
 do
